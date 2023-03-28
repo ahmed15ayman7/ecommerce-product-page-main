@@ -93,9 +93,12 @@ let update_cart_view=()=>{
         e.remove();
         result_item.pop(i);
         if (result_item.length==0) {
-            console.log("qqqq")
+            popop_cart.classList.remove('popop');
             cart_view.children[cart_view.children.length-1].remove();
             cart_view.children[0].children[2].classList.remove('d-none');
+        }else{
+            popop_cart.classList.add('popop');
+            popop_cart.setAttribute('data-bs-target',result_item.length)
         }
     })
   })
@@ -111,6 +114,8 @@ add_to_cart.addEventListener('click',pr=>{
     let numProduct=+quntety.textContent;
     
     let sub_img_active = document.querySelector(".imgs .sub-img img.active");
+    popop_cart.classList.add('popop');
+    popop_cart.setAttribute('data-bs-target',result_item.length+1)
     fun_cart_item(sub_img_active.getAttribute('src'),125,numProduct);
     update_cart_view();
     quntety.textContent='1';
