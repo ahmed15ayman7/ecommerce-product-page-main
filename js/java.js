@@ -87,12 +87,12 @@ let update_cart_view=()=>{
     </div>
   `
   let cart_item = document.querySelectorAll(".cart-item");
-
   cart_item.forEach((e,i)=>{
     e.children[2].children[0].addEventListener('click',()=>{
         e.remove();
         result_item.pop(i);
         if (result_item.length==0) {
+            console.log("qqqq")
             popop_cart.classList.remove('popop');
             cart_view.children[cart_view.children.length-1].remove();
             cart_view.children[0].children[2].classList.remove('d-none');
@@ -101,9 +101,9 @@ let update_cart_view=()=>{
             popop_cart.setAttribute('data-bs-target',result_item.length)
         }
     })
-  })
+})
 
-  
+
 }
 //? button add to cart 🛒
 //! button add to cart 🛒
@@ -112,7 +112,6 @@ let add_to_cart = document.querySelector(".btn-add");
 add_to_cart.addEventListener('click',pr=>{
     //!Your cart is empty.
     let numProduct=+quntety.textContent;
-    
     let sub_img_active = document.querySelector(".imgs .sub-img img.active");
     popop_cart.classList.add('popop');
     popop_cart.setAttribute('data-bs-target',result_item.length+1)
